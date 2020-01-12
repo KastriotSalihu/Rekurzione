@@ -3,6 +3,7 @@
 #define spac std::cout<<" "	    //Prints a space
 #define LOG() std::cout			 //Prints
 
+
 int factorial_a(int n);												  //Used	 
 void Numerim(int test);												  //Used
 void display(int n);												  //Used
