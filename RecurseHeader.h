@@ -21,4 +21,4 @@ int getMax(int arr[], int n);										  //Used K
 int getMin(int arr[], int n);										  //Used K
 int sum(int n);														  //Used 
 
-void printArray(int arr[], int n);						 //Auxilary					
+void printArray(int arr[], int n);						 //Auxilary				
