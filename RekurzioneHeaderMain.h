@@ -1,17 +1,18 @@
 #pragma once
 bool provoPalindrom();
-void NumeroSeMbrapthi();
+void bazeNeEksponent();
 bool provoNumerThjesht();
 void shumaEShifrave();
 void prodhim();
+void ShumeSigma();
 void seri();
 void numerimN0N();
 void renditVargun();
-void shiqoDheThuaj();
-void NumriBashktinglloreve();        
+void ShtypVarg();
+void NumriBashktinglloreve();
 void gjejMinDheMax();
 void faktorielIndirekt();
-void ShumeSigma();
+
 struct vf{
 	vf() : cls(true), cls1(true) {}
 	bool cls;
