@@ -2,19 +2,19 @@
 #include<string>
 #include <algorithm>
 #define min(x,y) ((x<y)?x:y)
-	   
-int factorial_b(int n);																						   
+
+int factorial_b(int n);
 //Finds the factorial of a given number n (n!)
 int factorial_a(int n) {
 	if (n <= 1)   return 1;
-	else  
+	else
 		return n * factorial_b(n - 1);
-}			   
+}
 int factorial_b(int n) {
 	if (n <= 1)   return 1;
-	else  
+	else
 		return n * factorial_a(n - 1);
-}			   					
+}
 // Prints n n-1 ... 2 1 1 2 ...	n-1 n
 void Numerim(int test){
 	if (test < 1)   return;
@@ -24,33 +24,26 @@ void Numerim(int test){
 		std::cout << test << " ";
 		return;
 	}
-}										 
-//Displays integers from n to 0
-void display(int n) {
-	if (n < 1)
-		return;
-	std::cout << n << "\t";
-	display(n - 1);
-}									   
+}
 // Recursive function to print the pattern without any extra variable
 void printPattern(int n, int m)	{
 	if (n == 0 || n < 0){
 		std::cout << n << " ";
 		return;
-	} 
+	}
 	// First print decreasing order
 	std::cout << n << " ";
-	printPattern(n - m, m);		
+	printPattern(n - m, m);
 	// Then print increasing order
 	std::cout << n << " ";
-}											
+}
  //Reverses order of digits
 int reverse_digits(int n, int temp){
 	if (n == 0)
-		return temp; 
+		return temp;
 	temp = (temp * 10) + (n % 10);
-	return reverse_digits(n / 10, temp);   
-}				
+	return reverse_digits(n / 10, temp);
+}
 //Checks whether number is palindrome
 bool checkPalindrome(int num) {
 	int result = reverse_digits(num, 0);
@@ -61,8 +54,8 @@ bool checkPalindrome(int num) {
 	else {
 		std::cout << "Numri " << num << " nuk eshte palindrom" << std::endl;
 		return 0;
-	}		 
-}								 
+	}
+}
 // is Prime or Not using Recursion Returns true if n is prime, else
 // return false. i is current divisor to check.
 bool isPrime(int n, int i = 2) {
@@ -94,7 +87,7 @@ int product(int x, int y) {
 	// iteratively calculate y times sum of x
 	else
 		return (x + product(x, y - 1));
-}	 	
+}
 // Recursive function to sort an array using insertion sort
 void insertionSortRecursive(int arr[], int n) {
 	// Base case
@@ -115,39 +108,12 @@ void insertionSortRecursive(int arr[], int n) {
 	}
 	arr[j + 1] = last;
 }
-// Returns n'th term in look-and-say sequence
-std::string lookAndSay(int n) {
-	// Base cases
-	if (n == 1)      return "1";
-	if (n == 2)      return "11";
-	// Find n'th term by generating all terms from 3 to
-	// n-1.  Every term is generated using previous term
-	std::string str = "11"; // Initialize previous term
-	for (int i = 3; i <= n; i++) {
-		// In below for loop, previous character is processed in current iteration. That
-		// is why a dummy character is added to make sure that loop runs one extra iteration.
-		str += '$';
-		int len = str.length();
-		int cnt = 1; // Initialize count of matching chars
-		std::string  tmp = ""; // Initialize i'th term in series
-		// Process previous term to find the next term
-		for (int j = 1; j < len; j++) {
-			// If current character does't match
-			if (str[j] != str[j - 1]) {
-				// Append count of str[j-1] to temp
-				tmp += cnt + '0';
-				// Append str[j-1]
-				tmp += str[j - 1];
-				// Reset count
-				cnt = 1;
-			}
-			//  If matches, then increment count of matching characters
-			else cnt++;
-		}
-		// Update str
-		str = tmp;
-	}
-	return str;
+//Shtyp varg me rekurzion
+void printA(int array[],int n,int p){
+if (n>=p)
+    return;
+std::cout<<array[n]<<" ";
+printA(array,n+1,p);
 }
 // Function to check for consonant
 bool isConsonant(char ch) {
@@ -155,28 +121,18 @@ bool isConsonant(char ch) {
 	ch = toupper(ch);
 	return !(ch == 'A' || ch == 'E' ||
 		ch == 'I' || ch == 'O' ||
-		ch == 'U') && ch >= 65 && ch <= 90;
+		ch == 'U')&& ch >= 65 && ch <= 90;
 }
-//Removes Spaces
-int removeSpaces(char* str,int n) {
-	int cnt = 0;
-	for (int i = 0; i < n;i++) {
-		if (str[i] == ' ') {
-			str[i] = 'a';
-			cnt++;
-		}
-	}
-	return cnt;
-}								
 // to count total number of consonants from 0 to n-1
-int totalConsonants(char *str, int n)
-{
-	if (n == 1)
-		return isConsonant(str[0]);			 
-	return totalConsonants(str, n - 1) + isConsonant(str[n - 1]);
+int totalConsonants(std::string str, int n){
+    if (n == 1)
+        return isConsonant(str[0]);
+
+    return totalConsonants(str, n - 1) +
+           isConsonant(str[n-1]);
 }
 // CPP program to find minimum (or maximum) element in an array.
-int getMin(int arr[], int n){ 
+int getMin(int arr[], int n){
 	return (n == 1) ? arr[0] : min(arr[0], getMin(arr + 1, n - 1));
 }
 int getMax(int arr[], int n) {
@@ -186,4 +142,9 @@ int sum(int n) {
 	if (n != 0)
 		return n + sum(n - 1);
 	else   return n;
+}
+long int calculPow(int x, int y){
+long int result = 1;
+if (y==0)return 1;
+result = (x*calculPow(x,y-1));
 }
